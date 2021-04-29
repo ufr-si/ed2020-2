@@ -55,21 +55,28 @@ def add_elemento(l,el,pos):
             l[pos] = el
 
     return 0
-        
 
 
 add_elemento(lista,5)
 
 def del_elemento(n):
-    pass
+    # elemento existe? 
+    # o que eu faco depois que removo da lista? 
+    # o que mais de restricao posso ter? 
+
+    pass     
 
 def busca_elemento(n):
+    #percorre até achar    
     pass
 
 def busca_melhor(n):
     pass
 
+### RESTRICAO: lista tem que estar ordenada para esse funcionar
+
 def busca_binaria(n):
+    # 
     pass
 
 # o que mais podemos fazer? 
