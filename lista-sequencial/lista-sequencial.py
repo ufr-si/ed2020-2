@@ -75,6 +75,8 @@ def busca_melhor(n):
 
 ### RESTRICAO: lista tem que estar ordenada para esse funcionar
 
+# o que é ? 
+# como se comporta? 
 def busca_binaria(n):
     # 
     pass
