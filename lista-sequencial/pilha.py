@@ -3,7 +3,6 @@
 
 pilha = [None]*4 # lista estáticas, tamanho fixo
 
-
 topo = -1 # indica aonde está o topo da pilha; -1 indica que a pilha está vazia 
 
 # def vazia():
