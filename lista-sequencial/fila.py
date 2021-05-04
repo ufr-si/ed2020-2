@@ -15,14 +15,15 @@ def queue(n):
     global fila
     global total
 
-    if(total != len(fila)):
-        fila[ultimo] = n
-        total = total +1
+    if(total != len(fila)): # a fila está cheia?
+        fila[ultimo] = n # insercao na fila
+        total = total +1 # incrementa o total de elementos na fila
 
-        if ultimo == len(fila)-1:
+        ultimo = ultimo + 1
+
+        if ultimo == len(fila):
             ultimo = 0
-        else:
-            ultimo = ultimo + 1        
+
     else:
         print("ERRO, FILA CHEIA")
 
@@ -32,15 +33,16 @@ def dequeue():
     global fila
     global total
     elem = None
-    if(total != 0):
+    if(total != 0): # está vazio?
             
-        elem = fila[primeiro]
-        fila[primeiro] = None
-        total = total - 1 
-        if primeiro == len(fila) -1: 
+        elem = fila[primeiro] #capturar o elemento no começo da fila (PRÓXIMO)
+        fila[primeiro] = None #saiu da fila
+        total = total - 1  # informa que a fila diminuiu
+
+        primeiro = primeiro + 1
+        if(primeiro == len(fila )):
             primeiro = 0
-        else:
-            primeiro = primeiro +1
+        
     else:
         print("Fila VAZIA")
         
@@ -50,39 +52,50 @@ def dequeue():
 #zona de testes
 queue("a")
 print(fila)
-queue("a")
+print("ultima posicao livre: ",ultimo)
+queue("b")
 print(fila)
-queue("a")
+print("ultima posicao livre: ",ultimo)
+queue("c")
 print(fila)
-queue("a")
+print("ultima posicao livre: ",ultimo)
+queue("d")
 print(fila)
-queue("a")
+print("ultima posicao livre: ",ultimo)
+
+print(dequeue())
 print(fila)
 
-print("removi: ",dequeue())
-print(fila)
-print("removi: ",dequeue())
-print(fila)
-print("removi: ",dequeue())
-print(fila)
-print("removi: ",dequeue())
-print(fila)
-print("removi: ",dequeue())
+print(dequeue())
 print(fila)
 
-print("primeiro, ",primeiro)
-print("ultimo, ",ultimo)
-print("total, ",total)
+print(dequeue())
+print(fila)
+
+print(dequeue())
+print(fila)
+
+print(dequeue())
+print(fila)
 
 queue("a")
 print(fila)
 queue("b")
 print(fila)
+
+print(dequeue())
+print(fila)
+
 queue("c")
 print(fila)
-print("removi: ",dequeue())
+
+print(dequeue())
 print(fila)
-print("removi: ",dequeue())
+
+queue("c")
 print(fila)
 queue("d")
 print(fila)
+
+
+
