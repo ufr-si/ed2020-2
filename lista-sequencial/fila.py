@@ -47,6 +47,34 @@ def dequeue():
         print("Fila VAZIA")
         
     return elem
+
+def listar_primeiro():
+    global primeiro
+    global fila
+    print(fila[primeiro])
+
+
+
+def listar_elementos():
+    # for (int i = primeiro; i != ultimo; i++){
+    #   
+    #   i pode passar o tamanho da lista! 
+    #   if (i passa do limite de indices){
+    #       i = 0;  
+    #   }
+    #   printf("%d",lista[i]);
+    # }
+    global primeiro
+    global ultimo
+    global fila
+    i = primeiro
+    while(i != ultimo): # ultimo equivale a ultima posicao vazia
+        if(i ==len(fila)):
+            i = 0        
+        print(fila[i])
+        i = i+1
+
+    
         
 
 #zona de testes
@@ -92,10 +120,13 @@ print(fila)
 print(dequeue())
 print(fila)
 
-queue("c")
-print(fila)
 queue("d")
 print(fila)
+queue("e")
+print(fila)
+
+print("primeiro: ",primeiro)
+print("ultimo: ",ultimo)
 
 
-
+listar_elementos()

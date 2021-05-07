@@ -1,7 +1,7 @@
 # o que faz uma pilha ser pilha?
 # LAST IN, FIRST OUT (LIFO)
 
-pilha = [None]*4 # lista estáticas, tamanho fixo
+pilha = [None]*50 # lista estáticas, tamanho fixo
 
 topo = -1 # indica aonde está o topo da pilha; -1 indica que a pilha está vazia 
 
@@ -18,7 +18,7 @@ def push(n):
     if not topo == len(pilha)-1:
         topo = topo +1
         pilha[topo] = n    
-        print("Adicionado: ", n)
+        
     else:
         print("ERRO, ESTOURO DE PILHA KABUUUUUUM paga a gente")
 
@@ -26,44 +26,64 @@ def pop():
     global topo # 9
     global pilha # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
-    # se a pilha nao esta vazia
     if topo == -1: 
-        return "PILHA VAZIA!"
+        return -1
     else:
+        # se a pilha nao esta vazia
         rem = topo # 9
         elemento = pilha[rem] # pilha[9] = 10 
         pilha[topo] = None # [1, 2, 3, 4, 5, 6, 7, 8, 9, None]
         topo = topo-1 # 8
-        print(rem)
         return elemento
+
+def converte_decimal_binario(n):
     
-push(1)
-push(2)
-push(3)
-push(4)
-push(5)
+    binario = ""
+    quociente = 0
+    resto = 0
+    # push no n
+    push(n)
+
+    n = pop()
+    while n != 0:
+        quociente = n//2
+        resto = n % 2 
+        push(resto)
+        push(quociente)
+        n = pop() # pop de novo pra pegar o próximo n  
+    
+    n = pop()
+    while(n !=-1):
+        binario = binario+str(n)
+        n = pop()
+
+    return binario
+
+#n = input("Diga o numero ")
+
+# print(converte_decimal_binario(int(n)))
 
 
-print(pilha)
+def palindromo(palavra):
+    # ler caractere por caracter
+    # adicionar na pilha 
+    
+    
+    for c in palavra:
+        # ignorar espacos e pontos
+        if( c not in ['.',' ']):
+            push(c)
+    
+    for c in palavra:    
+        if( c not in ['.',' ']):
+            n = pop()
+            if (n != c):
+                return False
+    
+    return True
 
-
-print("Removi: ", pop())
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
-
-push(1)
-push(2)
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
-print("Removi: ", pop())
-print(pilha)
+s = input("Digite uma palavra: ")
+if palindromo(s):
+   print("É palindromo!") 
+else:
+    print("não é palindromo!")
