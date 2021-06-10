@@ -19,28 +19,41 @@ def inserir_ordenado(n):
         lista = no
     else:
         # o elemento pode ser maior, igual, pode ser menor
-        if n <= lista.item:
+        if n <= lista.item: 
+            # elemento é menor!
             no = No(n) # criei o nó
-            lista.anterior = no 
+            lista.anterior = no # anterior do item na lista acessa o nó
             no.proximo = lista 
-            lista = no
+            lista = no #ele vira o topo da lista
         else: # n > lista.item 
+            # preciso percorrer até quando ele for menor (ou for o fim da lista)
             aux = lista
-            while aux.proximo != None and aux.proximo.item <= n:
-                aux = aux.proximo
-            # ? aux >= n
-            if aux.item == n:    
-                no = No(n) # criei nó
-                no.proximo = aux
-                no.anterior = aux.anterior
-                aux.anterior.proximo = no
-                aux.anterior = no
-            elif n>aux.item: 
+            #enquanto nao for o último item da lista (aux.proximo = None)
+            # e o item for menor ou igual a n
+            while aux.proximo != None and aux.item < n: 
+                aux = aux.proximo #pegue o próximo  
+            
+            # cheguei no aux aonde eu colocarei o item depois
+            # sr aux prox vazio, item no final
+            print("tipo aux ", type(aux))
+            print("tipo aux ", type(aux.proximo))
+            if aux.proximo == None:
+                
+                #inserindo no final
                 no = No(n)
-                aux.proximo = n
+                aux.proximo = no
+                
                 no.anterior = aux
                 no.proximo = None
-
+                
+            else:
+                #nao é no final, vou ter que colocar no meio!!
+                no = No(n) # criei nó
+                no.proximo = aux #guarde o próximo
+                no.anterior = aux.anterior # anterior do aux vira anterior do novo no
+                aux.anterior.proximo = no # o próximo do anterior do aux aponta pra no
+                aux.anterior = no    # aux anterior aponta para no.
+                
 def imprime_lista():
     global lista
     # enquanto o proximo elemento nao for None: imprime o elemento atual
@@ -48,13 +61,17 @@ def imprime_lista():
     print("Lista:")
     while aux != None: 
         print(aux,",")
-        aux = aux.proximo
+        aux = aux.proximo 
 
-inserir_ordenado(50)
-inserir_ordenado(40)
-inserir_ordenado(30)
-inserir_ordenado(50)
-inserir_ordenado(60)
-inserir_ordenado(70)
+a = input("O que fazer? ")
+while a != 0:
+    if a =="1":
+        b = input("Numero a inserir")
+        inserir_ordenado(b)
+        imprime_lista()
 
-imprime_lista()
+    if( a == "2"):
+        exit()
+    a = input("O que fazer? ")
+
+
