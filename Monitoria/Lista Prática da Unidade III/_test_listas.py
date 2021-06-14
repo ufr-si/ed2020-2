@@ -1,0 +1,26 @@
+from _listas import PilhaEncadeada, FilaEncadeada, ListaEncadeada
+
+print('PilhaEncadeada:')
+pilha = PilhaEncadeada()
+pilha.add(1)
+pilha.add(2)
+pilha.add(3)
+pilha.remove()
+pilha.print()
+
+print('FilaEncadeada:')
+fila = FilaEncadeada()
+fila.add(1)
+fila.add(2)
+fila.add(3)
+fila.remove()
+fila.print()
+
+print('ListaEncadeada:')
+lista = ListaEncadeada()
+lista.add(4)
+lista.add(3)
+lista.add(2)
+lista.add(1)
+lista.remove(2)
+lista.print()
