@@ -38,14 +38,16 @@ def criaL2(itens):
         add(i)
 
 
-def concatena(lista1, lista2):
-    if lista1 == None:
-        lista1 = lista2
+def concatena():
+    global L1
+    global L2
+    if L1 == None:
+        L1 = L2
     else:
-        aux = lista1
+        aux = L1
         while aux.proximo != None:
             aux = aux.proximo
-        aux.proximo = lista2
+        aux.proximo = L2
 
 
 def imprimeLista(prefixo, lista):
@@ -70,5 +72,5 @@ criaL2([5, 6])
 imprimeLista('L1 = ', L1)
 imprimeLista('L2 = ', L2)
 
-concatena(L1, L2)
+concatena()
 imprimeLista('L1 + L2 = ', L1)
