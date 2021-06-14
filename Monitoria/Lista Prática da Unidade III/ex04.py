@@ -8,7 +8,7 @@ class No:
 lista = None
 
 
-def criaLista():
+def criaLista(itens):
     def add(i):
         global lista
         if lista == None:
@@ -22,7 +22,7 @@ def criaLista():
             novoItem.anterior = aux
             aux.proximo = novoItem
 
-    for i in [1, 1, 1]:
+    for i in itens:
         add(i)
 
 
@@ -68,7 +68,7 @@ def imprimeLista(prefixo, lista):
 
 # Main
 
-criaLista()
+criaLista([1, 1, 1])
 imprimeLista('Lista = ', lista)
 
 removeRepetidos()
